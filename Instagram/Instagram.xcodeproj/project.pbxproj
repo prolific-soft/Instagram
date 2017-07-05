@@ -13,6 +13,11 @@
 		EF08069F1F0D79770084B4EA /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF08069E1F0D79770084B4EA /* ActivityViewController.swift */; };
 		EF0806A11F0D79830084B4EA /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0806A01F0D79830084B4EA /* ProfileViewController.swift */; };
 		EF0806A31F0D80050084B4EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF0806A21F0D80050084B4EA /* Main.storyboard */; };
+		EF0806A71F0D83A40084B4EA /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF0806A61F0D83A40084B4EA /* Home.storyboard */; };
+		EF0806A91F0D84000084B4EA /* Discovey.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF0806A81F0D84000084B4EA /* Discovey.storyboard */; };
+		EF0806AB1F0D84590084B4EA /* Camera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF0806AA1F0D84590084B4EA /* Camera.storyboard */; };
+		EF0806AD1F0D84B90084B4EA /* Activity.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF0806AC1F0D84B90084B4EA /* Activity.storyboard */; };
+		EF0806AF1F0D85280084B4EA /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF0806AE1F0D85280084B4EA /* Profile.storyboard */; };
 		EF8990C11F0D51E700290667 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8990C01F0D51E700290667 /* AppDelegate.swift */; };
 		EF8990C81F0D51E700290667 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF8990C71F0D51E700290667 /* Assets.xcassets */; };
 		EF8990CB1F0D51E700290667 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF8990C91F0D51E700290667 /* LaunchScreen.storyboard */; };
@@ -28,6 +33,11 @@
 		EF08069E1F0D79770084B4EA /* ActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		EF0806A01F0D79830084B4EA /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		EF0806A21F0D80050084B4EA /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = SOURCE_ROOT; };
+		EF0806A61F0D83A40084B4EA /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = SOURCE_ROOT; };
+		EF0806A81F0D84000084B4EA /* Discovey.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Discovey.storyboard; sourceTree = "<group>"; };
+		EF0806AA1F0D84590084B4EA /* Camera.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Camera.storyboard; sourceTree = SOURCE_ROOT; };
+		EF0806AC1F0D84B90084B4EA /* Activity.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Activity.storyboard; sourceTree = "<group>"; };
+		EF0806AE1F0D85280084B4EA /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = SOURCE_ROOT; };
 		EF8990BD1F0D51E700290667 /* Instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF8990C01F0D51E700290667 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EF8990C71F0D51E700290667 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -78,6 +88,11 @@
 				EF0806981F0D79380084B4EA /* HomeViewController.swift */,
 				EF8990D21F0D548000290667 /* Start.storyboard */,
 				EF0806A21F0D80050084B4EA /* Main.storyboard */,
+				EF0806AE1F0D85280084B4EA /* Profile.storyboard */,
+				EF0806AC1F0D84B90084B4EA /* Activity.storyboard */,
+				EF0806AA1F0D84590084B4EA /* Camera.storyboard */,
+				EF0806A81F0D84000084B4EA /* Discovey.storyboard */,
+				EF0806A61F0D83A40084B4EA /* Home.storyboard */,
 				EF8990C71F0D51E700290667 /* Assets.xcassets */,
 				EF8990C91F0D51E700290667 /* LaunchScreen.storyboard */,
 				EF8990CC1F0D51E700290667 /* Info.plist */,
@@ -144,10 +159,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF0806A91F0D84000084B4EA /* Discovey.storyboard in Resources */,
+				EF0806AB1F0D84590084B4EA /* Camera.storyboard in Resources */,
 				EF8990CB1F0D51E700290667 /* LaunchScreen.storyboard in Resources */,
+				EF0806A71F0D83A40084B4EA /* Home.storyboard in Resources */,
 				EF8990D31F0D548000290667 /* Start.storyboard in Resources */,
 				EF8990C81F0D51E700290667 /* Assets.xcassets in Resources */,
+				EF0806AF1F0D85280084B4EA /* Profile.storyboard in Resources */,
 				EF0806A31F0D80050084B4EA /* Main.storyboard in Resources */,
+				EF0806AD1F0D84B90084B4EA /* Activity.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
