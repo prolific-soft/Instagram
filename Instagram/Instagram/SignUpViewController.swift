@@ -12,8 +12,8 @@ import FirebaseDatabase
 import FirebaseStorage
 
 class SignUpViewController: UIViewController {
-
-   
+    
+    
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -85,17 +85,17 @@ class SignUpViewController: UIViewController {
     func textFieldDidChange(){
         guard let username = usernameTextField.text, !username.isEmpty, let email = emailTextField.text, !email.isEmpty,
             let password = passwordTextField.text, !password.isEmpty else{
-            
-            signUpButton.setTitleColor(UIColor.lightText, for: .normal)
-            signUpButton.isEnabled = false
-            return
+                
+                signUpButton.setTitleColor(UIColor.lightText, for: .normal)
+                signUpButton.isEnabled = false
+                return
         }
         
         signUpButton.setTitleColor(UIColor.white, for: .normal)
         signUpButton.isEnabled = true
     }
-
-    //Handle selection of phote for Profile Image
+    
+    //Handle selection of photo for Profile Image
     func handleSelectedProfileImageView(){
         let pickerController = UIImagePickerController()
         pickerController.delegate = self
@@ -105,45 +105,27 @@ class SignUpViewController: UIViewController {
     
     
     @IBAction func signUpBtn_TouchUpInside(_ sender: Any){
-        Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user : User?, error: Error?) in
-            if error != nil {
-                print(error!.localizedDescription)
-                return
-            }
+        
+        if let profileImg = self.selectedImage, let imageData = UIImageJPEGRepresentation(profileImg, 0.1) {
             
-            let uid = user?.uid
-            let storageRef = Storage.storage().reference(forURL: "gs://instagram-d461f.appspot.com").child("profile_image").child(uid!)
-            
-            if let profileImg = self.selectedImage, let imageData = UIImageJPEGRepresentation(profileImg, 0.1) {
-                storageRef.putData(imageData, metadata: nil, completion: { (metadata, error) in
-                    if error != nil {
-                        return
-                    }
-                    let profileImageUrl = metadata?.downloadURL()?.absoluteString
-                    self.setUserInformation(profileImageUrl: profileImageUrl!, username: self.usernameTextField.text!, email: self.emailTextField.text!, uid: uid!)
-                    
-                })
-            }
+            AuthService.signUp(username: usernameTextField.text!, email: emailTextField.text!, password: passwordTextField.text!, imageData: imageData, onSuccess: {
+                self.performSegue(withIdentifier: "signUpToTabbarVC", sender: nil)
+            }, onError: {(errorString) in
+                print(errorString!)
+            })
+        }else {
+            print("Profile Image can't be empty")
         }
     }
     
-    
-    func setUserInformation(profileImageUrl: String, username: String, email:String, uid:String) {
-        let ref = Database.database().reference()
-        let usersReference = ref.child("users")
-        //print(usersReference.description())
-        
-        let newUserReference = usersReference.child(uid)
-        newUserReference.setValue(["username": username, "email": email, "profileImageUrl" : profileImageUrl])
-    }
     
     
     
     @IBAction func dismiss_onClick(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
-
-
+    
+    
 }//End SignUpVC
 
 
@@ -156,7 +138,7 @@ extension SignUpViewController: UIImagePickerControllerDelegate, UINavigationCon
             selectedImage = image
             profileImage.image = image
         }
-       
+        
         print("did finish picking image")
         //profileImage.image = infoPhoto
         

@@ -12,7 +12,7 @@
         <!--Home-->
         <scene sceneID="8Qi-kH-CIA">
             <objects>
-                <viewController id="zj6-2U-kQ8" sceneMemberID="viewController">
+                <viewController id="zj6-2U-kQ8" customClass="HomeViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5Sx-fp-pLC"/>
                         <viewControllerLayoutGuide type="bottom" id="bt9-iz-SMG"/>
@@ -22,7 +22,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Home" id="KW4-Kp-Xek"/>
+                    <navigationItem key="navigationItem" title="Home" id="KW4-Kp-Xek">
+                        <barButtonItem key="leftBarButtonItem" title="LogOut" id="vl0-Cr-hxw">
+                            <connections>
+                                <action selector="logout_TouchUpInside:" destination="zj6-2U-kQ8" id="Gyp-B7-qgO"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SEg-5T-4JR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

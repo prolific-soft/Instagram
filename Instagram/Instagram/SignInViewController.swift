@@ -10,7 +10,7 @@ import UIKit
 import FirebaseAuth
 
 class SignInViewController: UIViewController {
-
+    
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signInButton: UIButton!
@@ -41,16 +41,28 @@ class SignInViewController: UIViewController {
         
         handleTextField()
         signInButton.isEnabled = false
+        
+        
+    }
+    
+    //Automatically sign user in if already been
+    //signed in earlier
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if Auth.auth().currentUser != nil {
+            print(Auth.auth().currentUser!)
+            self.performSegue(withIdentifier: "signInToTabbarVC", sender: nil)
+        }
     }
     
     
     //Checks for empty textfield and disables signup button
     func handleTextField(){
-        emailTextField.addTarget(self, action: #selector(SignUpViewController.textFieldDidChange), for: .editingChanged)
-        passwordTextField.addTarget(self, action: #selector(SignUpViewController.textFieldDidChange), for: .editingChanged)
+        emailTextField.addTarget(self, action: #selector(SignInViewController.textFieldDidChange), for: .editingChanged)
+        passwordTextField.addTarget(self, action: #selector(SignInViewController.textFieldDidChange), for: .editingChanged)
     }
     
-
+    
     func textFieldDidChange(){
         guard let email = emailTextField.text, !email.isEmpty,
             let password = passwordTextField.text, !password.isEmpty else{
@@ -66,26 +78,19 @@ class SignInViewController: UIViewController {
     
     
     @IBAction func signInButton_TouchUpInside(_ sender: Any) {
-        Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
-            
-            if error != nil {
-                print(error!.localizedDescription)
-                return
-            }
-            
-            self.performSegue(withIdentifier: "signInToTabbarVC", sender: nil)
-        }
+        AuthService.signIn(email: emailTextField.text!, password: passwordTextField.text!, onSuccess:
+            {
+                self.performSegue(withIdentifier: "signInToTabbarVC", sender: nil)
+        }, onError: { error in
+            print(error!)
+        })
+        
     }
     
     
     
     
-    
-    
-    
-    
-    
-    
+
     
     
 }//End SignInViewController
